@@ -1,0 +1,283 @@
+\documentclass{emulateapj}
+\usepackage{longtable, hyperref, graphicx, subfigure, epstopdf}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{multirow}
+%\usepackage{setspace}
+%\usepackage{verbatim}
+
+%\LongTables
+
+%\newcommand{\sin}{\ifmmode {\rm sin}\else {sin}\fi}
+%\newcommand{\cos}{\ifmmode {\rm cos}\else {cos}\fi}
+\newcommand{\Msun}{\ifmmode {M_{\odot}}\else${M_{\odot}}$\fi}
+\newcommand{\Rsun}{\ifmmode {R_{\odot}}\else${R_{\odot}}$\fi}
+\newcommand{\lessim }{{\lower0.8ex\hbox{$\buildrel <\over\sim$}}}
+\newcommand{\gessim }{{\lower0.8ex\hbox{$\buildrel >\over\sim$}}}
+\def\amin{\ifmmode^{\prime}\else$^{\prime}$\fi}
+\def\asec{\ifmmode^{\prime\prime}\else$^{\prime\prime}$\fi}
+\def\ctss{$10^{-2}$ counts s$^{-1}$}
+\def\ergcms{erg~cm$^{-2}$~s$^{-1}$}
+\def\ergs{erg~s$^{-1}$}
+\def\ROSAT{\it ROSAT}
+
+
+\slugcomment{DRAFT \today}
+
+\shorttitle{Binary Mass Loss}
+\shortauthors{Andrews et al.}
+\bibliographystyle{apj}
+
+
+\begin{document}
+
+\title{Mass Loss from Wide Binaries}
+
+\author{Jeff Andrews\altaffilmark{1}
+}
+
+\altaffiltext{1}{Columbia University, Department of Astronomy, 550 West 120th Street, New York, NY 10027, USA}
+
+\begin{abstract}
+
+\end{abstract}
+
+\keywords{binaries: general}
+
+\section{Introduction}
+
+%\begin{deluxetable*}{lll}
+%\tablewidth{0pt}
+%\tablecaption{  \label{tab:table_title}}
+%\tablehead{
+%\colhead{} & 
+%\colhead{} &
+%\colhead{}
+%}
+%\startdata
+
+%\enddata
+%\end{deluxetable*}
+
+
+%\begin{figure}[th]
+%\centerline{\includegraphics[width=.75\columnwidth,angle=90]{fig1.eps}}
+%\caption{}\label{fig1}
+%\end{figure}
+
+\section{Analytics}
+\subsection{Angular Momentum}
+
+
+We can start with the orbital angular momentum:
+\begin{equation}
+J =  \frac{M_1 M_2}{\sqrt{M_1 + M_2}} \sqrt{\mathcal{G} A (1-e^2)}. \label{eq:J_def}
+\end{equation}
+We can determine the derivative of $J$ with respect to time:
+\begin{equation}
+\frac{\dot{J}}{J} = \frac{\dot{M_1}}{M_1} + \frac{\dot{M_2}}{M_2} - \frac{1}{2}\frac{\dot{M_1} + \dot{M_2}}{M_1 + M_2} + \frac{1}{2} \frac{\dot{A}}{A} + \frac{1}{2}\frac{\frac{\rm d}{{\rm d}t} (1-e^2)}{1-e^2}. \label{eq:Jdot_J1}
+\end{equation}
+Now I use Kepler's Third Law to determine the change in the quantity $\mathcal{G}(M_1 + M_2)A (1-e^2)$:
+\begin{equation}
+n^2 A^4 (1-e^2) = \mathcal{G} (M_1+M_2) A (1-e^2), 
+\end{equation}
+so,
+\begin{equation}
+\frac{\rm d}{{\rm d}t} \left[ n A^2 \sqrt{1-e^2} \right] = \frac{\rm d}{{\rm d}t} \sqrt{ \mathcal{G} (M_1+M_2) A (1-e^2)}.
+\end{equation}
+To determine this, we can determine an intermediate quantity:
+\begin{equation}
+\frac{\frac{\rm d}{{\rm d}t} \left( n A^2 \sqrt{1-e^2} \right)}{n A^2 \sqrt{1-e^2}} =  \frac{1}{2} \frac{\dot{M_1} + \dot{M_2}}{M_1 + M_2} + \frac{1}{2} \frac{\dot{A}}{A} + \frac{1}{2}\frac{\frac{\rm d}{{\rm d}t} (1-e^2)}{1-e^2}.
+\end{equation}
+We can substitute this into equation \ref{eq:Jdot_J1} to produce:
+\begin{equation}
+\frac{\frac{\rm d}{{\rm d}t} \left( n A^2 \sqrt{1-e^2} \right)}{n A^2 (1-e^2)} = \frac{\dot{J}}{J} + \frac{\dot{M_1} + \dot{M_2}}{M_1 + M_2} - \frac{\dot{M_1}}{M_1} - \frac{\dot{M_2}}{M_2}. \label{eq:dt_d}
+\end{equation}
+We determine the orbital angular momentum,
+\begin{equation}
+J = M_1 j_1 + M_2 j_2,
+\end{equation}
+where $j_1$ and $j_2$ are the specific angular momentum of the primary and secondary components, respectively. Here, we set the $\dot{J}/J$ term by assuming that mass is lost with the specific angular momentum of its host star. This simplifies the equations substantially:
+\begin{eqnarray}
+J &=& \dot{M_1} j_1 + \dot{M_2} j_2 \\
+ &=& \frac{\dot{M_1}}{M_1} \frac{M_2}{M_1 + M_2} J + \frac{\dot{M_2}}{M_2} \frac{M_1}{M_1 + M_2} J. 
+\end{eqnarray}
+We can determine a new equation:
+\begin{equation}
+\frac{\dot{J}}{J} = \frac{M_1}{M_1 + M_2} \frac{\dot{M_2}}{M_2} +  \frac{M_2}{M_1 + M_2} \frac{\dot{M_1}}{M_1}. \label{eq:Jdot_J2}
+\end{equation}
+Combining equation \ref{eq:Jdot_J2} with \ref{eq:dt_d} produces the constraint:
+\begin{equation}
+\frac{\frac{{\rm d}}{{\rm d}t} \left( n A^2 \sqrt{1-e^2} \right)}{n A^2 \sqrt{1-e^2}} = 0.
+\end{equation}
+Using Kepler's Third Law, this gives us the constraint that, when mass is lost from the system with the specific angular momentum of its host star:
+\begin{equation}
+(M_1+M_2) A (1-e^2) = {\rm const.} \label{eq:constraint_J}
+\end{equation}
+It is easy to see that this is the eccentric binary analog to the familiar Jeans Mode mass loss constraint for circular binaries:
+\begin{equation}
+(M_1 + M_2) A = {\rm const.}
+\end{equation}
+For ease later in this work, we express equation \ref{eq:constraint_J} as:
+\begin{equation}
+\frac{\dot{M_1} + \dot{M_2}}{M_1 + M_2} + \frac{\dot{A}}{A} + \frac{\frac{{\rm d}}{{\rm d}t} (1-e^2)}{1-e^2} = 0. \label{eq:ang_mom}
+\end{equation}
+
+\subsection{Orbital Energy}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.95\columnwidth]{../figures/Diagram.pdf}
+\caption{\label{fig:diagram} We define our reference frame such that Star 2 is at the origin and Star 1 moves along an elliptical orbit around it. The line connecting apocenter with pericenter defines the x-axis. The true anomaly ($f$) is defined as the angle between the vector joining the two stars and the x-axis. The eccentric anomaly ($E$) is defined as the angle between vector from the center of the ellipse to the projection of Star 1 onto the circle circumscribing the orbit, and the x-axis. }
+\end{center}
+\end{figure}
+
+
+To determine how the orbital separation and eccentricity evolve with mass loss, we include an additional constraint based on the conservation of energy. We first model the evolution of an orbit in the limit that mass is lost instantaneously from each star, and that none of it is accreted by its companion. Note that we ignore energy from stellar spin. Figure \ref{fig:diagram} shows our frame of reference. We defining the reference frame such that the second star is at the origin, the instantaneous orbital velocity of the mass losing star ($\vec{V_1}$) can be determined as:
+\begin{equation}
+\vec{V_1} =   \sqrt{\frac{\mathcal{G} (M_1 + M_2) }{A (1-e^2)}} \times
+  \begin{vmatrix}
+     e \sin f \\
+    1 + e \cos f \\
+    0 \\        
+  \end{vmatrix} ,
+\end{equation}
+where $f$ is the true anomaly. The magnitude of $\vec{V_1}$ can now be determined:
+\begin{equation}
+v_1^2 = \frac{\mathcal{G} (M_1 + M_2) }{A (1-e^2)}(1 + 2 e \cos f + e^2). \label{eq:v_1}
+\end{equation}
+Any mass lost from the system will cause the system to gain a center of mass velocity. We can solve for the center of mass motion of the system using conservation of momentum:
+\begin{eqnarray}
+(M_1' + M_2') \vec{V_{\rm CM}} &=& M_1' \vec{V_1} + M_2' \vec{V_2} \nonumber \\
+v_{\rm CM}^2 &=& \left( \frac{M_1'}{M_1' + M_2'} \right)^2 v_1^2. \label{eq:v1_vcm}
+\end{eqnarray}
+Throughout the rest of this work, primed quantities denote orbital parameters after instantaneous mass loss. We now solve for the post-mass loss orbital separation, $A'$, using conservation of energy:
+\begin{eqnarray}
+K_1 + K_2 + U_{1,2} &=& K_{\rm sys} + U_{\rm orb} \nonumber \\
+M_1' v_1^2 + M_2' v_2^2 - \frac{2 \mathcal{G} M_1' M_2'}{r} &=& (M_1' + M_2') v_{\rm CM}^2 - \frac{\mathcal{G} M_1' M_2'}{A'},\label{eq:energy_cons}
+\end{eqnarray}
+where $K_1$, $K_2$, and $K_{1,2}$ are the kinetic energy of the primary, secondary, and combined binary components, $U_{1,2}$ is the gravitational potential energy of the system, and $U_{\rm orb}$ is the energy of the orbit. We can further express $r$ as a function of the eccentric anomaly:
+\begin{equation}
+r = \frac{A (1 - e^2)}{1+e \cos f }. \label{eq:r_orb}
+\end{equation}
+Combining equations \ref{eq:v1_vcm}, \ref{eq:energy_cons}, and \ref{eq:r_orb}, we determine the post-mass loss orbital separation:
+\begin{equation}
+\frac{1}{A'} = \left[ -\frac{v_1^2}{\mathcal{G}(M_1' + M_2')} + \frac{2(1 + e \cos f)}{A(1 - e^2)} \right].
+\end{equation}
+Assuming the mass loss is infinitesimally small by linearizing the perturbations such that $A' = A + \delta A$, $M_1' = M_1 + \delta M_1$, and $M_2' = M_2 + \delta M_2$, using equation \ref{eq:v_1}, we find:
+\begin{equation}
+\frac{\delta A}{A} = - \frac{1 + 2e \cos f + e^2}{1-e^2} \frac{\delta M_1 + \delta M_2}{M_1 + M_2}. \label{eq:deltaA_A}
+\end{equation}
+Expressing this mass loss as a function of time, equation \ref{eq:deltaA_A} becomes:
+\begin{equation}
+\dot{A} = - \frac{1 + 2e \cos f + e^2}{1 - e ^2} \frac{\dot{M_1} + \dot{M_2}}{M_1 + M_2} A. \label{eq:Adot_diff}
+\end{equation}
+Combining this equation with equation \ref{eq:ang_mom} allows us to determine the eccentricity evolution as a function of mass loss:
+\begin{equation}
+\dot{e} = - (\cos f + e) \frac{\dot{M_1} + \dot{M_2}}{M_1 + M_2}. \label{eq:edot_diff}
+\end{equation}
+The change in orbital separation is dependent upon the true anomaly, therefore the orbit will change differently depending on whether mass is lost at pericenter or apocenter.
+
+{\bf Important result 1:}
+Regardless of the eccentricity and true anomaly, equation \ref{eq:Adot_diff}, shows that:
+\begin{equation}
+{\rm sign} ( \dot{A}) = -{\rm sign} (\dot{M_1} + \dot{M_2}).
+\end{equation}
+Therefore under our assumptions, mass loss in an eccentric binary will {\it always} increase the semi-major axis of the orbit.
+
+{\bf Important result 2:}
+Equation \ref{eq:edot_diff} shows that the effect of mass change on the eccentricity of a binary is oscillatory and depends on both the position of the binary in its orbit and the orbital eccentricity. For mass loss ($\dot{M_1} + \dot{M_2} < 0$) in low eccentricity binaries, $\dot{e}$ is negative as the two stars approach pericenter, circularizing the orbit, and positive, increasing the eccentricity of the binary as the stars approach apocenter. 
+
+Equations \ref{eq:Adot_diff} and \ref{eq:edot_diff} show that the change of eccentricity and orbital separation act on the same timescale as the mass loss timescale:
+\begin{equation}
+t_{\dot{M}} \sim \frac{M}{\dot{M}} \sim \frac{A}{\dot{A}} \sim \frac{e}{\dot{e}}.
+\end{equation}
+For most binaries, the mass loss timescale occurs on the nuclear or thermal timescale of the mass losing star, and is therefore significantly longer than the orbital period. In such cases, the long term, secular evolution of $A$ and $e$ can be determined by averaging over an orbit. To calculate this integral, we use the relationship:
+\begin{equation}
+\dot{f} = \frac{(1 + e \cos f)^2}{(1-e^2)^{3/2} } n, \label{eq:fdot}
+\end{equation}
+where $n$ is the mean anomaly. We can now calculate the secular orbital evolution:
+\begin{eqnarray}
+\left< \frac{{\rm d}A}{{\rm d}t} \right>_{\rm sec} &=& \frac{1}{P_{\rm orb}} \int_0^{2 \pi} \frac{\dot{A}}{\dot{f}} {\rm d}f \\
+\left< \frac{{\rm d}e}{{\rm d}t} \right>_{\rm sec} &=& \frac{1}{P_{\rm orb}} \int_0^{2 \pi} \frac{\dot{e}}{\dot{f}} {\rm d}f.
+\end{eqnarray}
+Using equations \ref{eq:fdot}, \ref{eq:Adot_diff}, and \ref{eq:edot_diff} to evaluate these integrals, the secular change in the orbital separation and eccentricity becomes:
+\begin{eqnarray}
+\left< \frac{{\rm d}A}{{\rm d}t} \right>_{\rm sec} &=& -A \frac{\dot{M_1} + \dot{M_2}}{M_1 + M_2} \label{eq:Adot_sec} \\
+\left< \frac{{\rm d}e}{{\rm d}t} \right>_{\rm sec} &=& 0. \label{eq:edot_sec}
+\end{eqnarray}
+{\bf Important result 3:} 
+Equations \ref{eq:Adot_sec} and \ref{eq:edot_sec} show that, when mass is lost on a timescale significantly longer than the orbital period, the eccentricity remains constant, while the orbital separation increases with mass loss. This result can readily obtained from equation \ref{eq:edot_diff} for the evolution of the eccentricity: for exactly half of an orbit, $\dot{e}>0$ and for the other half $\dot{e}<0$.
+
+Mass loss will, in general, cause apsidal precession in the orbit. To determine the magnitude of this effect, we begin with the equation for specific angular moment:
+\begin{equation}
+j^2 = \mathcal{G} (M_1 + M_2) r (1 + e \cos f).
+\end{equation}
+Now, we take the derivative of this equation, noting that $\dot{j}=0$:
+\begin{equation}
+0 = \frac{{\rm d}}{{\rm d}t} \mathcal{G} (M_1 + M_2) r (1 + e \cos f).
+\end{equation}
+Noting that, for precession, $\dot{r} = 0$, and using equation \ref{eq:edot_diff} to substitute for $\dot{e}$, we can solve for the instantaneous precession rate:
+\begin{equation}
+\dot{f}_{\rm prec} = \frac{\sin f}{e} \frac{\dot{M_1} + \dot{M_2}}{M_1 + M_2} \label{eq:prec}.
+\end{equation}
+It can be seen that this term typically only affects binaries with low eccentricities. This can be understood in terms of the Laplace-Runge-Lenz vector, which points toward the the pericenter of the orbit, with a magnitude that scales with the orbital eccentricity. It takes a larger perturbation to alter a larger Laplace-Runge-Lenz vector. Particularly for near circular binaries, precession needs to be taken into account as an additive perturbation on equation \ref{eq:fdot} for $\dot{f}$.
+
+\subsection{Wider Binaries}
+When the orbital period becomes of order the mass loss timescale, we can no longer determine the secular change in orbital period and eccentricity by averaging over an orbit. Such a regime is encountered for extremely wide binaries, with orbital periods in excess of $10^3$ years, and for the extreme mass loss rates observed by AGB stars. Late in their evolution, these stars experience pulsations  causing brief increases in the stellar luminosity and radius, causing large changes in the mass loss rate. Such periods of extreme mass loss may occur on timescales of order or shorter than the orbital periods of some wide binaries. 
+
+
+To determine the evolution of such systems, we now need to determine how $E$ evolves throughout an orbit. We use the condition that the angular momentum per unit reduced mass of an orbit, $j$, is equivalent to $\vec{r} \times \vec{\dot{r}}$. For an orbit in the XY-plane, with the pericenter and apocenter of the orbit lying on the X-axis, we can determine $\vec{r}$:
+\begin{equation}
+\vec{r} =
+  \begin{vmatrix}
+    A (\cos E - e ) \\
+    A \sqrt{1-e^2} \sin E \\
+    0 \\        
+  \end{vmatrix} 
+\end{equation}
+Now we can solve for $j$:
+\begin{eqnarray}
+j &=& \begin{vmatrix} \vec{r} \times \vec{\dot{r}} \end{vmatrix} \nonumber \\
+ &=& A^2 \sqrt{1-e^2} (\cos E - e) \sin E \nonumber \\
+ &\qquad& \times \left[ \frac{\frac{\rm d}{{\rm d}t} \sqrt{1-e^2}}{\sqrt{1-e^2}} + \frac{\frac{\rm d}{{\rm d}t}\sin E }{\sin E} - \frac{\frac{\rm d}{{\rm d}t}(\cos E - e)}{\cos E - e} \right]. \label{eq:j_ecc_anom}
+\end{eqnarray}
+From equation \ref{eq:J_def}, $j$ can also be expressed in orbital parameters:
+\begin{equation}
+%j = n A^2 \sqrt{1-e^2}, \label{eq:j_orb}
+j = \sqrt{\mathcal{G} (M_1 + M_2) (1-e^2) A}. \label{eq:j_orb}
+\end{equation}
+Now we can combine equations \ref{eq:j_ecc_anom} and \ref{eq:j_orb} and solve for $\dot{E}$, 
+\begin{equation}
+\dot{E} = \sqrt{\frac{\mathcal{G} (M_1 + M_2)}{A^3}} \frac{1}{1 - e \cos E} - \frac{\sin E}{1 - e^2} \dot{e}. \label{eq:E_dot}
+\end{equation}
+Substituting for $\dot{e}$ using equation \ref{eq:edot_diff} we get an expression for $\dot{E}$ as a function of the mass loss rate:
+\begin{equation}
+\dot{E} = \frac{1}{1-e \cos E} \left[ \sqrt{\frac{\mathcal{G} (M_1 + M_2)}{A^3}} - \sin E \cos E \frac{\dot{M_1} + \dot{M_2}}{M_1 + M_2} \right]. \label{eq:Edot_diff}
+\end{equation} 
+It is easy to show that in the limit that $M/\dot{M} << P_{\rm orb}$, this reduces to equation \ref{eq:Edot}. Equations \ref{eq:Adot_diff}, \ref{eq:edot_diff}, and \ref{eq:Edot_diff} are the set of coupled differential equations that define the evolution of the orbit as the stars in a binary lose mass. 
+
+
+
+\section{Comparison with N-body simulations}
+
+
+
+\section{Application to wide binaries}
+
+
+
+
+
+\acknowledgments
+
+
+\clearpage
+\setlength{\baselineskip}{0.6\baselineskip}
+\bibliography{references_v2}
+\setlength{\baselineskip}{1.667\baselineskip}
+
+
+\end{document}
+
