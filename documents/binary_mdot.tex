@@ -149,7 +149,7 @@ v_1^2 = \frac{\mathcal{G} (M_1 + M_2) }{A (1-e^2)}(1 + 2 e \cos f + e^2). \label
 \end{equation}
 Any mass lost from the system will cause the system to gain a center of mass velocity. We can solve for the center of mass motion of the system using conservation of momentum:
 \begin{eqnarray}
-(M_1' + M_2') \vec{V_{\rm CM}} &=& M_1' \vec{V_1} + M_2' \vec{V_2} \nonumber \\
+(M_1' + M_2') \vec{V_{\rm CM}} &=& M_1' \vec{V_1} + M_2' \vec{V_2} \label{eq:vcm} \\
 v_{\rm CM}^2 &=& \left( \frac{M_1'}{M_1' + M_2'} \right)^2 v_1^2. \label{eq:v1_vcm}
 \end{eqnarray}
 Throughout the rest of this work, primed quantities denote orbital parameters after instantaneous mass loss. We now solve for the post-mass loss orbital separation, $A'$, using conservation of energy:
@@ -257,6 +257,54 @@ Substituting for $\dot{e}$ using equation \ref{eq:edot_diff} we get an expressio
 \dot{E} = \frac{1}{1-e \cos E} \left[ \sqrt{\frac{\mathcal{G} (M_1 + M_2)}{A^3}} - \sin E \cos E \frac{\dot{M_1} + \dot{M_2}}{M_1 + M_2} \right]. \label{eq:Edot_diff}
 \end{equation} 
 It is easy to show that in the limit that $M/\dot{M} << P_{\rm orb}$, this reduces to equation \ref{eq:Edot}. Equations \ref{eq:Adot_diff}, \ref{eq:edot_diff}, and \ref{eq:Edot_diff} are the set of coupled differential equations that define the evolution of the orbit as the stars in a binary lose mass. 
+
+
+\subsection{Proper Motion}
+
+We move to the barycentric frame. We can determine the individual velocities:
+\begin{eqnarray}
+\vec{V_1} &=& \sqrt{\frac{\mathcal{G} (M_1 + M_2) }{A (1-e^2)}} \frac{M_2}{M_1 + M_2}
+  \begin{vmatrix}
+     e \sin f \\
+    1 + e \cos f \\
+    0 \\        
+  \end{vmatrix} \\
+\vec{V_2} &=& -\sqrt{\frac{\mathcal{G} (M_1 + M_2) }{A (1-e^2)}} \frac{M_1}{M_1 + M_2}
+  \begin{vmatrix}
+     e \sin f \\
+    1 + e \cos f \\
+    0 \\        
+  \end{vmatrix}.
+\end{eqnarray}
+
+Using equation \ref{eq:vcm}, we can determine the center of mass velocity:
+\begin{equation}
+(M_1' + M_2') \vec{V_{\rm CM}} = \sqrt{\frac{\mathcal{G} (M_1 + M_2) }{A (1-e^2)}} \frac{M_1' M_2 - M_1 M_2'}{M_1+ M_2}  
+  \begin{vmatrix}
+     e \sin f \\
+    1 + e \cos f \\
+    0 \\        
+  \end{vmatrix}.
+\end{equation}
+By linearizing the perturbations, we can solve for the perturbed center of mass velocity:
+\begin{equation}
+\delta \vec{V_{\rm CM}} = \sqrt{\frac{\mathcal{G} (M_1 + M_2) }{A (1-e^2)}}  \frac{M_1 M_2}{\left( M_1 + M_2 \right)^2} \left( \frac{\delta M_1}{M_1} - \frac{\delta M_2}{M_2} \right)
+  \begin{vmatrix}
+     e \sin f \\
+    1 + e \cos f \\
+    0 \\        
+  \end{vmatrix}.
+\end{equation}
+Taking the derivative with respect to time, we get the change in center of mass velocity with respect to time:
+\begin{equation}
+\frac{{\rm d} \vec{V_{\rm CM}}}{{\rm d}t} = \sqrt{\frac{\mathcal{G} (M_1 + M_2) }{A (1-e^2)}}  \frac{M_1 M_2}{\left( M_1 + M_2 \right)^2} \left( \frac{\dot{M_1}}{M_1} - \frac{\dot{M_2}}{M_2} \right)
+  \begin{vmatrix}
+     e \sin f \\
+    1 + e \cos f \\
+    0 \\        
+  \end{vmatrix}.
+\end{equation}
+{\bf TO DO:} These equations assume no apsidal precession (that the argument of perhaps is constant, therefore $\vec{x}$ and $\vec{y}$ are constant with respect to the true anomaly).
 
 
 
